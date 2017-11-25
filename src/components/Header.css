@@ -1,0 +1,12 @@
+.header {
+    background-color: #2B448C;
+}
+
+.header_brand {
+    text-align: left;
+    padding-right: 0;
+}
+
+.header_brand img {
+    max-width: 200px;
+}

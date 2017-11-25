@@ -24,6 +24,7 @@ class Search extends Component {
     this.getCards = this.getCards.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   getCards() {
@@ -46,19 +47,26 @@ class Search extends Component {
     });
   }
 
+  handleKeyPress(target) {
+    if (target.charCode == 13) {
+      this.getCards();
+    }
+  }
+
   render() {
     return (
       <Container
         className="w-100"
-        style={{ marginTop: '66px', marginBottom: '66px' }}
+        style={{ marginTop: '20px', marginBottom: '20px' }}
       >
         <Row>
-          <Col className="col-8">
-            <InputGroup className="pull-right">
+          <Col className="col">
+            <InputGroup className="text-center">
               <Input
                 placeholder="Search for your card here"
                 value={this.state.searchText}
                 onChange={this.onSearchChange}
+                onKeyPress={this.handleKeyPress}
               />
               <InputGroupButton>
                 <Button onClick={this.getCards}>
@@ -68,7 +76,7 @@ class Search extends Component {
             </InputGroup>
           </Col>
         </Row>
-        <Row style={{ marginTop: '60px', width: '100%' }}>
+        <Row style={{ marginTop: '20px', width: '100%' }}>
           <Col xs="12">
             <Container
               className="w-100"
